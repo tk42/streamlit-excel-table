@@ -75,7 +75,7 @@ def react_excel_table(data=List[Dict], columns=List[Dict], options={"sortable": 
 
 # Add some test code to play with the component while it's in development.
 # During development, we can run this just as we would any other Streamlit
-# app: `$ streamlit run st-excel-table/__init__.py`
+# app: `$ streamlit run st_excel_table/__init__.py`
 if not _RELEASE:
     import streamlit as st
 

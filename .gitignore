@@ -1,6 +1,7 @@
 **/node_modules
 
 dist/*
+streamlit_excel_table.egg-info
 
 # PyPI
 .pypirc

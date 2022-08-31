@@ -2,7 +2,7 @@ LICENSE
 MANIFEST.in
 README.md
 setup.py
-st-excel-table/__init__.py
+st_excel_table/__init__.py
 streamlit_excel_table.egg-info/PKG-INFO
 streamlit_excel_table.egg-info/SOURCES.txt
 streamlit_excel_table.egg-info/dependency_links.txt
