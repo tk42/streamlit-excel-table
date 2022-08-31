@@ -1,0 +1,9 @@
+LICENSE
+MANIFEST.in
+README.md
+setup.py
+streamlit_excel_table.egg-info/PKG-INFO
+streamlit_excel_table.egg-info/SOURCES.txt
+streamlit_excel_table.egg-info/dependency_links.txt
+streamlit_excel_table.egg-info/requires.txt
+streamlit_excel_table.egg-info/top_level.txt

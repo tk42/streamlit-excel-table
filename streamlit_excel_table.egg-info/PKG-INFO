@@ -1,3 +1,14 @@
+Metadata-Version: 2.1
+Name: streamlit-excel-table
+Version: 0.1.0
+Summary: Streamlit component implementation of react-awesome-table
+Home-page: https://github.com/tk42/streamlit-excel-table
+Author: tk42
+Author-email: nsplat+pip@gmail.com
+Requires-Python: >=3.6
+Description-Content-Type: text/markdown
+License-File: LICENSE
+
 # Streamlit-Excel-Table
 
 react-awesome-table is a great table like Microsoft Excel for web frontend. More information in [Kazunori-Kimura/react-awesome-table](https://github.com/Kazunori-Kimura/react-awesome-table) (Thanks!)
