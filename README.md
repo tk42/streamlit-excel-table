@@ -40,3 +40,5 @@ options = {"sortable": False, "filterable": False}
 
 react_excel_table(data, columns, options)
 ```
+
+![sample](./sample.png)
