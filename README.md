@@ -2,6 +2,11 @@
 
 react-awesome-table is a great table like Microsoft Excel for web frontend. More information in [Kazunori-Kimura/react-awesome-table](https://github.com/Kazunori-Kimura/react-awesome-table) (Thanks!)
 
+## Install
+```
+pip install streamlit-excel-table
+```
+
 ## Overview
 
 Streamlit-Excel-Table is a Streamlit component like Microsoft Excel.
