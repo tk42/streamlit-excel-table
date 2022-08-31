@@ -7,18 +7,7 @@ react-awesome-table is a great table like Microsoft Excel for web frontend. More
 Streamlit-Excel-Table is a Streamlit component like Microsoft Excel.
 
 ```python
-import streamlit as st
-import streamlit.components.v1 as components
-
-_react_excel_table = components.declare_component(
-    "react_excel_table",
-    url="http://localhost:3001",
-)
-
-
-def react_excel_table(d, c, o):
-    return _react_excel_table(data=d, columns=c, options=o)
-
+import streamlit-excel-table as stet
 
 st.title("Streamlit-Excel-Table")
 
@@ -38,7 +27,7 @@ columns = [
 
 options = {"sortable": False, "filterable": False}
 
-react_excel_table(data, columns, options)
+stet.react_excel_table(data, columns, options)
 ```
 
 ![sample](./sample.png)
