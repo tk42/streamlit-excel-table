@@ -24,7 +24,7 @@ if not _RELEASE:
         # We give the component a simple, descriptive name ("my_component"
         # does not fit this bill, so please choose something better for your
         # own component :)
-        "react_excel_table",
+        "table",
         # Pass `url` here to tell Streamlit that the component will be served
         # by the local dev server that you run via `npm run start`.
         # (This is useful while your component is in development.)
@@ -36,7 +36,7 @@ else:
     # build directory:
     parent_dir = os.path.dirname(os.path.abspath(__file__))
     build_dir = os.path.join(parent_dir, "frontend/build")
-    _component_func = components.declare_component("react_excel_table", path=build_dir)
+    _component_func = components.declare_component("table", path=build_dir)
 
 
 # Create a wrapper function for the component. This is an optional
@@ -44,16 +44,26 @@ else:
 # `declare_component` and call it done. The wrapper allows us to customize
 # our component's API: we can pre-process its input args, post-process its
 # output value, and add a docstring for users.
-def react_excel_table(data=List[Dict], columns=List[Dict], options={"sortable": False, "filterable": False}) -> None:
-    """Create a new instance of "react_excel_table".
+def Table(
+    data: List[Dict],
+    columns: List[Dict],
+    options: Dict = {"sortable": False, "filterable": False},
+    key: str | None = None,
+) -> None:
+    """Create a new instance of "Table".
 
     Parameters
     ----------
     data: List[Dict]
+        Display data
         {"id": "hoge", "x": 5.77, "y": 8.85, "color": "red"},
 
     columns: List[Dict]
+        Column data
         [{"name": "id"}, {"name": "x"}, {"name": "y"}, {"name": "color"}]
+
+    options: Dict
+        [Optional] sortable / filterable settings
 
     Returns
     -------
@@ -66,7 +76,7 @@ def react_excel_table(data=List[Dict], columns=List[Dict], options={"sortable": 
     #
     # "default" is a special argument that specifies the initial return
     # value of the component before the user has interacted with it.
-    component_value = _component_func(data=data, columns=columns, options=options)
+    component_value = _component_func(data=data, columns=columns, options=options, key=key)
 
     # We could modify the value returned from the component if we wanted.
     # There's no need to do this in our simple example - but it's an option.
@@ -81,20 +91,18 @@ if not _RELEASE:
 
     st.title("Streamlit-Excel-Table")
 
-    _data = [
+    data = [
         {"id": "hoge", "x": 5.77, "y": 8.85, "color": "red"},
         {"id": "hogedb", "x": 15.77, "y": 18.85, "color": "red"},
         {"id": "hogeba", "x": 25.77, "y": 28.85, "color": "red"},
         {"id": "hogeas", "x": 35.77, "y": 38.85, "color": "red"},
     ]
 
-    _columns = [
+    columns = [
         {"name": "id"},
         {"name": "x"},
         {"name": "y"},
         {"name": "color"},
     ]
 
-    _options = {"sortable": False, "filterable": False}
-
-    react_excel_table(data=_data, columns=_columns, options=_options)
+    Table(data, columns, options={"sortable": False, "filterable": False})

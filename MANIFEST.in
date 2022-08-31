@@ -1,1 +1,1 @@
-st_excel_table/frontend/build *
+recursive-include st_excel_table/frontend/build *
