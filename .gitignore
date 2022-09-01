@@ -1,6 +1,7 @@
 **/node_modules
 
 # Distribution / packaging
+st_excel_table/frontend/build/
 .Python
 build/
 develop-eggs/

@@ -1,6 +1,8 @@
 # Streamlit-Excel-Table
 
-react-awesome-table is a great table like Microsoft Excel for web frontend. More information in [Kazunori-Kimura/react-awesome-table](https://github.com/Kazunori-Kimura/react-awesome-table) (Thanks!)
+This Streamlit component is a wrapper component of [@tk42/react-awesome-table](https://github.com/tk42/react-awesome-table).
+
+```react-awesome-table``` is a great table module like Microsoft Excel for web frontend. More information in [Kazunori-Kimura/react-awesome-table](https://github.com/Kazunori-Kimura/react-awesome-table) (Thanks!)
 
 ## Install
 ```
@@ -30,9 +32,7 @@ columns = [
     {"name": "color"},
 ]
 
-options = {"sortable": False, "filterable": False}
-
-Table(data=data, columns=columns, options=options)
+Table(data, columns)
 ```
 
 ![sample](./sample.png)

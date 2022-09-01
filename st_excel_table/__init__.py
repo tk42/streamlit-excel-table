@@ -47,8 +47,10 @@ else:
 def Table(
     data: List[Dict],
     columns: List[Dict],
-    options: Dict = {"sortable": False, "filterable": False},
     key: str | None = None,
+    sortable: bool = False,
+    filterable: bool = False,
+    **kwargs
 ) -> None:
     """Create a new instance of "Table".
 
@@ -62,21 +64,24 @@ def Table(
         Column data
         [{"name": "id"}, {"name": "x"}, {"name": "y"}, {"name": "color"}]
 
-    options: Dict
-        [Optional] sortable / filterable settings
-
     Returns
     -------
     None
 
     """
+    options = {"sortable": False, "filterable": False}
+    if sortable:
+        options["sortable"] = True
+    if filterable:
+        options["filterable"] = True
+
     # Call through to our private component function. Arguments we pass here
     # will be sent to the frontend, where they'll be available in an "args"
     # dictionary.
     #
     # "default" is a special argument that specifies the initial return
     # value of the component before the user has interacted with it.
-    component_value = _component_func(data=data, columns=columns, options=options, key=key)
+    component_value = _component_func(data=data, columns=columns, key=key, options=options, **kwargs)
 
     # We could modify the value returned from the component if we wanted.
     # There's no need to do this in our simple example - but it's an option.
@@ -105,4 +110,4 @@ if not _RELEASE:
         {"name": "color"},
     ]
 
-    Table(data, columns, options={"sortable": False, "filterable": False})
+    Table(data, columns)

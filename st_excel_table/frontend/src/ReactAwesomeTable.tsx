@@ -22,7 +22,13 @@ const ReactAwesomeTable: React.FC = () => {
             columns={args.columns}
             getRowKey={getRowKey}
             onChange={handleChange}
-            options={args.options}
+            options={args.options ?? { "sortable": false, "filterable": false }}
+            rowsPerPage={args.rowsPerPage ?? 10}
+            rowsPerPageOptions={args.rowsPerPageOptions ?? [10, 30, 100]}
+            readOnly={args.readOnly ?? false}
+            sticky={args.sticky ?? false}
+            rowNumber={args.rowNumber ?? false}
+            disableUndo={args.disableUndo ?? false}
         />
     )
 };
