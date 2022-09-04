@@ -1,4 +1,5 @@
 **/node_modules
+.DS_Store
 
 # Distribution / packaging
 st_excel_table/frontend/build/

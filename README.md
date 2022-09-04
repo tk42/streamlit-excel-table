@@ -14,6 +14,7 @@ pip install streamlit-excel-table
 Streamlit-Excel-Table is a Streamlit component like Microsoft Excel.
 
 ```python
+import streamlit as st
 from st_excel_table import Table
 
 st.title("Streamlit-Excel-Table")
