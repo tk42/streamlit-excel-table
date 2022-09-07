@@ -9,6 +9,9 @@
 name: Upload Python Package
 
 on:
+  push:
+    branches:
+      - "main"
   release:
     types: [published]
 
@@ -22,6 +25,17 @@ jobs:
 
     steps:
     - uses: actions/checkout@v3
+
+    - name: Use Node.js 16.x
+      uses: actions/setup-node@v3
+      with:
+        node-version: 16.x
+    - name: Build npm package
+      run: |
+        cd st_excel_table/frontend/
+        yarn build
+
+    - uses: actions/checkout@v3
     - name: Set up Python
       uses: actions/setup-python@v3
       with:
@@ -32,8 +46,8 @@ jobs:
         pip install build
     - name: Build package
       run: python -m build
-    - name: Publish package
-      uses: pypa/gh-action-pypi-publish@27b31702a0e7fc50959f5ad993c78deac1bdfc29
-      with:
-        user: __token__
-        password: ${{ secrets.PYPI_API_TOKEN }}
+    # - name: Publish package
+    #   uses: pypa/gh-action-pypi-publish@27b31702a0e7fc50959f5ad993c78deac1bdfc29
+    #   with:
+    #     user: __token__
+    #     password: ${{ secrets.PYPI_API_TOKEN }}
