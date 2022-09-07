@@ -30,9 +30,13 @@ jobs:
       uses: actions/setup-node@v3
       with:
         node-version: 16.x
-    - name: Build npm package
+    - name: Install dependencies
+      working-directory: ./st_excel_table/frontend/
       run: |
-        cd st_excel_table/frontend/
+        yarn install
+    - name: Build npm package
+      working-directory: ./st_excel_table/frontend/
+      run: |
         yarn build
 
     - uses: actions/checkout@v3
