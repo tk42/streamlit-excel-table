@@ -26,13 +26,6 @@ data = [
     {"id": "hogeas", "x": 35.77, "y": 38.85, "color": "red"},
 ]
 
-columns = [
-    {"name": "id"},
-    {"name": "x"},
-    {"name": "y"},
-    {"name": "color"},
-]
-
 Table(data, columns)
 ```
 

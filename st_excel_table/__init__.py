@@ -6,7 +6,7 @@ import streamlit.components.v1 as components
 # the component, and True when we're ready to package and distribute it.
 # (This is, of course, optional - there are innumerable ways to manage your
 # release process.)
-_RELEASE = True
+_RELEASE = not ("TERM_PROGRAM" in os.environ and os.environ["TERM_PROGRAM"] == "vscode")
 
 # Declare a Streamlit component. `declare_component` returns a function
 # that is used to create instances of the component. We're naming this
@@ -46,7 +46,7 @@ else:
 # output value, and add a docstring for users.
 def Table(
     data: List[Dict],
-    columns: List[Dict],
+    columns: List[Dict] | None = None,
     key: str | None = None,
     sortable: bool = False,
     filterable: bool = False,
@@ -60,15 +60,14 @@ def Table(
         Display data
         {"id": "hoge", "x": 5.77, "y": 8.85, "color": "red"},
 
-    columns: List[Dict]
-        Column data
-        [{"name": "id"}, {"name": "x"}, {"name": "y"}, {"name": "color"}]
-
     Returns
     -------
     None
 
     """
+
+    columns = [{"name": k} for k in data[0].keys()] if columns is None else columns
+
     options = {"sortable": False, "filterable": False}
     if sortable:
         options["sortable"] = True
@@ -103,11 +102,4 @@ if not _RELEASE:
         {"id": "hogeas", "x": 35.77, "y": 38.85, "color": "red"},
     ]
 
-    columns = [
-        {"name": "id"},
-        {"name": "x"},
-        {"name": "y"},
-        {"name": "color"},
-    ]
-
-    Table(data, columns)
+    Table(data)
