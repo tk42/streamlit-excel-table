@@ -46,11 +46,11 @@ else:
 # output value, and add a docstring for users.
 def Table(
     data: List[Dict],
-    columns: List[Dict] | None = None,
-    key: str | None = None,
+    columns: List[Dict] = None,
+    key: str = None,
     sortable: bool = False,
     filterable: bool = False,
-    **kwargs
+    **kwargs,
 ) -> None:
     """Create a new instance of "Table".
 
@@ -66,7 +66,12 @@ def Table(
 
     """
 
-    columns = [{"name": k} for k in data[0].keys()] if columns is None else columns
+    # All data must have the same keys.
+    header = data[0].keys()
+    for i, d in enumerate(data):
+        assert header == d.keys(), f"Index {i} {d.keys()} is not same with {header}"
+
+    columns = [{"name": k} for k in header] if columns is None else columns
 
     options = {"sortable": False, "filterable": False}
     if sortable:
